@@ -5,23 +5,20 @@
  *
  *@argp: Argument parameters
  *
- *Return: return int.
+ *Return: return string.
  */
 
 char print_string(va_list argp)
 {
 	char *s = va_arg(argp, char *);
-	int len = 0;
+	char val;
 
 	if (s == NULL)
 		s = "(nill)";
-	while (*s)
+	while (s != '\0')
 	{
-		_putchar(*s);
-		len++;
+		val = _putchar(*s);
 		s++;
 	}
-	return (len);
+	return (val);
 }
-
-
