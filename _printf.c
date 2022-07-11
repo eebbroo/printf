@@ -30,6 +30,14 @@ void _printf(const char *format, ...)
 
 				_putchar(char_to_print);
 			}
+			if (*format == 's')
+			{
+
+
+
+
+
+			}
 			else
 			{
 				return (2);
