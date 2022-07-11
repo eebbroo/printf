@@ -1,0 +1,45 @@
+#include "main.h"
+
+/**
+ *_printf - Prints output to standar output
+ *
+ *@format : Formatted string output
+ *@ ... : Unknown number of arguments
+ *
+ *Return : Return arguments
+ */
+
+void _printf(const char *format, ...)
+{
+	va_list argp;
+
+	va_start(argp, format);
+
+	while (*format != '\0')
+	{
+		if (*format == '%')
+		{
+			format++;
+			if (*format == '%')
+			{
+				_putchar('%');
+			}
+			if (*format == 'c')
+			{
+				char char_to_print = va_arg(argp, int);
+
+				_putchar(char_to_print);
+			}
+			else
+			{
+				return (2);
+			}
+		}
+		else
+		{
+			_putchar(*format);
+		}
+		format++;
+	}
+	va_end(argp);
+}
