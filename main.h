@@ -8,7 +8,7 @@
 #include <string.h>
 
 int _printf(const char *format, ...);
-char print_string(va_list argp);
-int _putchar(int);
+char print_string(va_list);
+int _putchar(char);
 
 #endif
