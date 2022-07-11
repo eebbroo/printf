@@ -11,6 +11,8 @@
 
 void _printf(const char *format, ...)
 {
+	int i = 0, cnt = 0;
+	int (*func)(va_list);
 	va_list argp;
 
 	va_start(argp, format);
@@ -30,24 +32,20 @@ void _printf(const char *format, ...)
 
 				_putchar(char_to_print);
 			}
-			if (*format == 's')
+			func = get_function(format[++i]);
+			if ((func) != NULL)
 			{
-
-
-
-
-
+				val += func(argp);
 			}
 			else
 			{
-				return (2);
+				if (format[i] == '\0')
+					return (-1);
+				val += _putchar(format[i - 1]);
+				val += _putchar(format[i]);
 			}
+			i++;
 		}
-		else
-		{
-			_putchar(*format);
-		}
-		format++;
-	}
-	va_end(argp);
+		va_end(argp);
+		return (val);
 }

@@ -10,5 +10,6 @@
 int _printf(const char *format, ...);
 char print_string(va_list);
 int _putchar(char);
+int (*get_func(const char))(va_list);
 
 #endif

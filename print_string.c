@@ -11,13 +11,14 @@
 char print_string(va_list argp)
 {
 	char *s = va_arg(argp, char *);
-	char val;
+	int val = 0;
 
 	if (s == NULL)
-		s = "(nill)";
-	while (s != '\0')
+		s = "(null)";
+	while (*s)
 	{
-		val = _putchar(*s);
+		_putchar(*s);
+		val++
 		s++;
 	}
 	return (val);
