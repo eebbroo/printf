@@ -8,7 +8,7 @@
  *Return: return string.
  */
 
-char print_string(va_list argp)
+int print_str(va_list argp)
 {
 	char *ptr = va_arg(argp, char *);
 	int val = 0;
@@ -18,7 +18,7 @@ char print_string(va_list argp)
 	while (*ptr)
 	{
 		_putchar(*ptr);
-		val++
+		val++;
 		ptr++;
 	}
 	return (val);

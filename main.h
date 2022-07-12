@@ -8,8 +8,8 @@
 #include <string.h>
 
 int _printf(const char *, ...);
-char print_string(va_list);
-int _putchar(char);
+int print_str(va_list);
+char _putchar(char);
 
 /** prv - struct typedef
  *
@@ -20,9 +20,8 @@ typedef struct prv
 {
 	char id;
 	int (*f)(va_list args);
-	prv_t;
-}
-
+}prv_t;
+int (*get_function(const char))(va_list);
 int pr_char(va_list);
 int pr_bin(va_list);
 int cnvrt_to_bin(unsigned int, int *);
