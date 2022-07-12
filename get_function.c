@@ -12,6 +12,10 @@ int(*get_function(const char id))(va_list argp)
 {
 	prv_t prv[] = {
 		{'s', print_str},
+		{'d', print_dec},
+		{'i', print_dec},
+		{'c', print_char},
+		{'b', print_bin},
 	};
 	const int len = 13;
 	int i = 0;
