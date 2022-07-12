@@ -1,36 +1,35 @@
 #include "main.h"
 
+
 /**
  * pr_bin - prints the binary representation of a number
- *
- * @argp: Arguments parameters
- *
- * Return: returns integer
- *
+ * @args: va_list
+ * Return: unsigned int
  */
 
-int print_bin(va_list argp)
+
+int pr_bin(va_list args)
 {
-	unsigned int num = va_arg(argp, unsigned int);
-	in count = 0;
-	int *ptr = &count;
+	unsigned int num = va_arg(args, unsigned int);
+	int cnt = 0;
+	int *ptr = &cnt;
 
 	return (cnvrt_to_bin(num, ptr));
 }
 
 /**
  * cnvrt_to_bin - converts decimal to binary
- *
- * @n: arguments parameter
- * @count: int pointer
- *
- * Return: return int
+ * @n: unsigned int
+ * @cnt: int pointer
+ * Return: int
  */
 
-int cnvrt_to_bin(unsigned int n, int *count)
+int cnvrt_to_bin(unsigned int n, int *cnt)
 {
 	if (n / 2)
-		cnvrt_to_bin(n / 2, count);
-	*count += _putchar ((n % 2) + '0');
-	return (*count);
+		cnvrt_to_bin(n / 2, cnt);
+
+	*cnt += _putchar((n % 2) + '0');
+
+	return (*cnt);
 }

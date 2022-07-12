@@ -1,14 +1,14 @@
 #include "main.h"
+#include <unistd.h>
 
 /**
- * _putchar - Function that prints a character
- *
- * @ch: character argument
- *
- * Return: return an int-type
+ * _putchar - print a char
+ * @ch: char
+ * Return: int
  */
 
-char _putchar(char ch)
+
+int _putchar(int ch)
 {
 	return (write(1, &ch, 1));
 }
