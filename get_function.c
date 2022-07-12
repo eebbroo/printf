@@ -1,33 +1,32 @@
 #include "main.h"
-
 /**
- * get_func - Selects the required function for the operation.
+ * get_function - Selects the correct function to perform operation.
  *
- * @id: char
+ * @s: argument indentifier
+ * @index: index for argument indentifier
  *
- * Return: return pointer to function or Null.
+ * Return: pointer to a function.
  */
 
-int (*get_func(const char id))(va_list argp)
+int (*get_func(const char *s, int index))(va_list, char *, unsigned int)
 {
-	prv_t pr[] = {
-		{"c", print_char}, {"s", print_str},
-		{"b", print_bin}, {"d", print_dec},
-		{"i", print_dec}, {"u", pr_un_int},
-		{"o", print_octa}, {"x", print_hex},
-		{"X", print_heX}, {"S", pr_non_prt},
-		{"r", print_rev}, {"R", print_rot13},
-		{"p", print_add}, {NULL, NULL},
+	print_t pr[] = {
+		{"c", print_chr}, {"s", print_string},
+		{"i", print_int}, {"d", print_int},
+		{"b", print_bnr}, {"u", print_unt},
+		{"o", print_oct}, {"x", print_hex},
+		{"X", print_upx}, {"S", print_usr},
+		{"p", print_add}, {'r', pr_rev},
+                {'R', pr_rot13}
 	};
-	const int len = 14;
+	const int len = 13;
 	int i = 0;
-
 	while (i < len)
 	{
-		if (id == pr[i].id)
-			return (pr[i].f);
+		if (id == prv[i].id)
+		{
+			return (prv[i].f);
+		}
 		i++;
 	}
 	return (NULL);
-}
-

@@ -10,16 +10,16 @@
 
 char print_string(va_list argp)
 {
-	char *s = va_arg(argp, char *);
+	char *ptr = va_arg(argp, char *);
 	int val = 0;
 
-	if (s == NULL)
-		s = "(null)";
-	while (*s)
+	if (ptr == NULL)
+		ptr = "No Arguments";
+	while (*ptr)
 	{
-		_putchar(*s);
+		_putchar(*ptr);
 		val++
-		s++;
+		ptr++;
 	}
 	return (val);
 }
