@@ -23,5 +23,3 @@ char print_string(va_list argp)
 	}
 	return (len);
 }
-
-
