@@ -9,45 +9,45 @@
  *Return : Return arguments
  */
 
-void _printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
+	int i = 0, val = 0;
+	int (*get)(va_list);
 	va_list argp;
 
 	va_start(argp, format);
 
-	while (*format != '\0')
+	if (format == NULL)
 	{
-		if (*format == '%')
+		return (-1);
+	}
+	while (*(format + i))
+	{
+		if (*(format + i) != '%')
 		{
 			format++;
-			if (*format == '%')
-			{
-				_putchar('%');
-			}
-			if (*format == 'c')
-			{
-				char char_to_print = va_arg(argp, int);
-
-				_putchar(char_to_print);
-			}
-			if (*format == 's')
-			{
-
-
-
-
-
-			}
-			else
-			{
-				return (2);
-			}
+			continue;
+		}
+		if (*(format + i + 1) == '%')
+		{
+			val += _putchar(*(format + i));
+			i++;
+			continue;
+		}
+		get = get_function(format[++i]);
+		if ((get) != NULL)
+		{
+			val += get(argp);
 		}
 		else
 		{
-			_putchar(*format);
+			if (*(format + i) == '\0')
+				return (-1);
+			val += _putchar(format[i - 1]);
+			val += _putchar(format[i]);
 		}
-		format++;
+		i++;
 	}
 	va_end(argp);
+	return (val);
 }
